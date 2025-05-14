@@ -6,7 +6,7 @@ const Pricing = () => {
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
         Choose Your Plan
       </h2>
-      <div className="w-full max-w-5xl flex flex-col md:flex-row gap-8 justify-center items-stretch">
+      <div className="w-[90%] max-w-5xl flex flex-col md:flex-row gap-8 justify-center items-stretch">
         {/* Starter Plan */}
         <div className="flex-1">
           <div className="flex-1 bg-white/90 rounded-4xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 -mb-16 relative z-10">
@@ -58,7 +58,7 @@ const Pricing = () => {
             </div>
           </div>
           <div className="relative z-0">
-            <div className="bg-black/90 border border-gray-800 text-white rounded-4xl flex-1 p-6 flex flex-col gap-3 text-sm pt-20 pb-15 relative z-0">
+            <div className="bg-black/90 border border-gray-800 text-white rounded-4xl flex-1 p-6 flex flex-col gap-3 text-sm pt-20 pb-16 relative z-0">
               <div className="flex items-center gap-2">
                 <span>✔</span>Everything In Starter
               </div>

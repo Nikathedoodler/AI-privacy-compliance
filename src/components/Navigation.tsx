@@ -15,8 +15,13 @@ const Navigation = () => {
     <nav className="w-[90%] md:w-5/8 mx-auto flex items-center justify-between py-4 px-6 md:px-8 bg-white/80 backdrop-blur-md border border-gray-100 rounded-full mt-0 shadow-sm">
       {/* Left: Logo */}
       <div className="flex items-center space-x-2">
-        <Image src="/file.svg" alt="Cuckoo Logo" width={32} height={32} />
-        <span className="font-bold text-lg">Cuckoo</span>
+        <Image
+          src="/images/logo.png"
+          alt="Cuckoo Logo"
+          width={32}
+          height={32}
+        />
+        <span className="font-bold text-lg">Doo</span>
       </div>
       {/* Center: Links */}
       <div className="hidden lg:flex items-center space-x-8 text-gray-700 font-medium">
