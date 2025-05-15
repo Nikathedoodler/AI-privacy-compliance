@@ -5,7 +5,7 @@ import Pricing from "@/components/Pricing";
 
 export default function Home() {
   return (
-    <div className="bg-gray-100 min-h-screen pt-10">
+    <div className="bg-gray-100 min-h-screen pt-2">
       <Navigation />
       {/* Hero Section */}
       <Hero />

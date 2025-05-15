@@ -18,7 +18,7 @@ const Pricing = () => {
               <div className="text-xs text-gray-500 mb-6">
                 (15% Commission On Sales/Tips)
               </div>
-              <button className="w-full py-3 bg-black text-white rounded-full font-semibold shadow hover:bg-gray-900 transition mb-4">
+              <button className="w-full py-3 bg-black text-white rounded-full font-semibold shadow hover:bg-lime-200 hover:text-black transition mb-4 cursor-pointer">
                 CHOOSE PLAN
               </button>
             </div>
@@ -52,7 +52,7 @@ const Pricing = () => {
               <div className="text-xs text-gray-500 mb-6">
                 (10% Commission On Sales/Tips)
               </div>
-              <button className="w-full py-3 bg-black text-white rounded-full font-semibold shadow hover:bg-gray-900 transition mb-2">
+              <button className="w-full py-3 bg-black text-white rounded-full font-semibold shadow hover:bg-white hover:text-black transition mb-2 cursor-pointer">
                 CHOOSE PLAN
               </button>
             </div>
@@ -79,7 +79,7 @@ const Pricing = () => {
               <div className="text-xs text-gray-500 mb-6">
                 (8.5% Commission On Sales/Tips)
               </div>
-              <button className="w-full py-3 bg-black text-white rounded-full font-semibold shadow hover:bg-gray-900 transition mb-4">
+              <button className="w-full py-3 bg-black text-white rounded-full font-semibold shadow hover:bg-lime-200 hover:text-black transition mb-4 cursor-pointer">
                 CHOOSE PLAN
               </button>
             </div>

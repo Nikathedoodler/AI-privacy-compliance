@@ -9,3 +9,15 @@
   -webkit-mask-image: linear-gradient(to left, transparent, black 30%);
   mask-image: linear-gradient(to left, transparent, black 30%);
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}

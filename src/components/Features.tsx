@@ -14,12 +14,12 @@ const Features = () => {
             data always meet the latest privacy standards.
           </p>
         </div>
-        <button className="w-full sm:w-auto min-w-[120px] max-w-[150px] mx-auto sm:mx-0 px-4 py-2 bg-black text-white rounded-2xl font-semibold shadow-lg shadow-black/40 hover:shadow-xl transition cursor-pointer">
+        <button className="w-full sm:w-auto min-w-[120px] max-w-[150px] mx-auto sm:mx-0 px-4 py-2 bg-black text-white rounded-full font-semibold shadow-md shadow-black/80 hover:shadow-md hover:shadow-green-400 transition-all duration-200 hover:scale-110 group cursor-pointer">
           Watch a Demo
         </button>
       </div>
       {/* New Section: Cutting-edge AI models */}
-      <div className="w-full rounded-2xl p-4 sm:p-6 md:p-8 md:pr-0 mb-8 bg-gradient-to-r from-[#1e1a5a] via-[#3b2fae] to-[#3fd0e8] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
+      <div className="w-full rounded-2xl p-4 sm:p-6 md:p-8 md:pr-0 mb-8 bg-gradient-to-r from-[#080721] via-[#0f0a3f] to-[#3fd0e8] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
         {/* Left: Title and Buttons */}
         <div className="flex-1 flex flex-col gap-3 sm:gap-4 text-white text-center md:text-left">
           <h2 className="text-start text-xl sm:text-2xl md:text-2xl lg:text-lg xl:text-xl font-bold">
@@ -95,7 +95,7 @@ const Features = () => {
           <h1 className="text-xl font-bold">Available Features</h1>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:-translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
             <Image
               alt="logo"
               src="/images/secure-dash.png"
@@ -110,7 +110,7 @@ const Features = () => {
               Central hub for monitoring privacy management activities
             </p>
           </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
             <Image
               alt="logo"
               src="/images/documents.svg"
@@ -125,7 +125,7 @@ const Features = () => {
               Ready-to-use privacy policy documents and templates for compliance
             </p>
           </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:-translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
             <Image
               alt="logo"
               src="/images/form-data.png"
@@ -140,7 +140,7 @@ const Features = () => {
               Dynamic form builders with options to exporting user data
             </p>
           </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
             <Image
               alt="logo"
               src="/images/admin.png"
@@ -156,65 +156,64 @@ const Features = () => {
               more
             </p>
           </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:-translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
             <Image
               alt="logo"
-              src="/images/secure-dash.png"
-              className="h-10 lg:h-10 w-auto"
-              width={32}
-              height={16}
-            />
-            <h1 className="text-md font-semibold text-center lg:text-start">
-              Secure User Dashboard
-            </h1>
-            <p className="hidden xl:block text-sm xl:text-xs">
-              Central hub for monitoring privacy management activities
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
-            <Image
-              alt="logo"
-              src="/images/documents.svg"
-              className="h-10 lg:h-10 w-auto"
-              width={32}
-              height={16}
-            />
-            <h1 className="text-md font-semibold text-center lg:text-start">
-              Document & Template Library
-            </h1>
-            <p className="hidden xl:block text-sm xl:text-xs">
-              Ready-to-use privacy policy documents and templates for compliance
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
-            <Image
-              alt="logo"
-              src="/images/form-data.png"
-              className="h-10 lg:h-10 w-auto"
-              width={32}
-              height={16}
-            />
-            <h1 className="text-md font-semibold text-center lg:text-start">
-              Form Tools & Data Export
-            </h1>
-            <p className="hidden xl:block text-sm xl:text-xs">
-              Dynamic form builders with options to exporting user data
-            </p>
-          </div>
-          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl">
-            <Image
-              alt="logo"
-              src="/images/admin.png"
+              src="/images/security.png"
               className="h-10 lg:h-8 w-auto"
               width={32}
               height={16}
             />
             <h1 className="text-md font-semibold text-center lg:text-start">
-              Admin Panel
+              End-to-End Security
             </h1>
             <p className="hidden xl:block text-sm xl:text-xs">
-              Control panel for managing user data, compliance settings, and
-              more
+              Continues security measures covering all platform operations
+            </p>
+          </div>
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
+            <Image
+              alt="logo"
+              src="/images/payment.png"
+              className="h-10 lg:h-10 w-auto"
+              width={32}
+              height={16}
+            />
+            <h1 className="text-md font-semibold text-center lg:text-start">
+              Booking & Payments
+            </h1>
+            <p className="hidden xl:block text-sm xl:text-xs">
+              System for scheduling consultainons and processing payments
+            </p>
+          </div>
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:-translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
+            <Image
+              alt="logo"
+              src="/images/certification.svg"
+              className="h-10 lg:h-10 w-auto"
+              width={32}
+              height={16}
+            />
+            <h1 className="text-md font-semibold text-center lg:text-start">
+              Training & Certification
+            </h1>
+            <p className="hidden xl:block text-sm xl:text-xs">
+              Educational Resources & Privacy Complinace Certification
+            </p>
+          </div>
+          <div className="flex flex-col items-center lg:items-start space-y-2 bg-gray-100 rounded-xl p-6 shadow-xl hover:-translate-y-2  hover:translate-x-2 duration-500 hover:shadow-lg hover:bg-pink-100 cursor-pointer">
+            <Image
+              alt="logo"
+              src="/images/encryption.png"
+              className="h-10 lg:h-10 w-auto"
+              width={32}
+              height={16}
+            />
+            <h1 className="text-md font-semibold text-center lg:text-start">
+              End-to-End Encryption
+            </h1>
+            <p className="hidden xl:block text-sm xl:text-xs">
+              Continues security measures covering all platform operations
             </p>
           </div>
         </div>
