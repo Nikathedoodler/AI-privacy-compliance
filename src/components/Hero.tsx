@@ -41,7 +41,7 @@ const Hero = () => {
           setIsPulseUp(true);
           // Then start pulse effect
           controls.start({
-            scale: [0.8, 1.0, 1.2],
+            scale: [0.9, 1.0, 1.1],
             transition: {
               repeat: Infinity,
               duration: 1.5,
