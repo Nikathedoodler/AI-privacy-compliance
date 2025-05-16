@@ -20,8 +20,9 @@ const Footer = () => {
             <Image
               src="/images/logo.png"
               alt="Cuckoo Logo"
+              className="h-8 w-auto"
               width={32}
-              height={32}
+              height={16}
             />
           </div>
           <span className="font-semibold text-sm md:text-xl text-gray-800">
@@ -99,7 +100,7 @@ const Footer = () => {
                   alt="email"
                   width={32}
                   height={16}
-                  className="h4 w-auto px-4"
+                  className="h4 w:auto px-4"
                 />
                 <input
                   type="email"
