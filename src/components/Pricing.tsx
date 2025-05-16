@@ -1,14 +1,23 @@
 import React from "react";
+import * as motion from "motion/react-client";
 
 const Pricing = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-center py-16 bg-black">
+    <div
+      id="pricing"
+      className="w-full flex flex-col items-center justify-center py-16 bg-[#2d2d2d] scroll-mt-90"
+    >
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
         Choose Your Plan
       </h2>
       <div className="w-[90%] max-w-5xl flex flex-col md:flex-row gap-8 justify-center items-stretch">
         {/* Starter Plan */}
-        <div className="flex-1">
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.8, type: "string", stiffness: 100 }}
+          className="flex-1"
+        >
           <div className="flex-1 bg-white/90 rounded-4xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 -mb-16 relative z-10">
             <div className="p-8 pb-4 flex flex-col items-center">
               <div className="text-gray-500 font-semibold mb-2">Starter</div>
@@ -40,9 +49,14 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* Pro Plan */}
-        <div className="flex-1">
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.8, type: "string", stiffness: 100 }}
+          className="flex-1"
+        >
           <div className="flex-1 bg-lime-200 rounded-4xl flex flex-col border-4 border-b-8 border-lime-500 -mb-16 relative z-10">
             <div className="p-8 pb-4 flex flex-col items-center">
               <div className="text-gray-500 font-semibold mb-2">Pro</div>
@@ -67,9 +81,14 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* Elite Plan */}
-        <div className="flex-1">
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.8, type: "string", stiffness: 100 }}
+          className="flex-1"
+        >
           <div className="flex-1 bg-white/90 rounded-4xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 -mb-16 relative z-10">
             <div className="p-8 pb-4 flex flex-col items-center">
               <div className="text-gray-500 font-semibold mb-2">ELITE</div>
@@ -94,7 +113,7 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

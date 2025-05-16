@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,10 @@ const Navigation = () => {
   });
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -30, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.8 }}
       className={`${
         isScrolled
           ? "opacity-80 left-1/2 -translate-x-1/2 fixed top-6 transition-opacity duration-100"
@@ -37,7 +41,7 @@ const Navigation = () => {
       } w-7/8 lg:w-3/4 xl:w-1/2 flex items-center justify-between py-2 px-6 md:px-6 bg-white/80 backdrop-blur-md border border-gray-200 rounded-full shadow-sm z-50`}
     >
       {/* Left: Logo */}
-      <div className="flex items-center space-x-2">
+      <a href="#top" className="flex items-center space-x-2">
         <Image
           src="/images/logo.png"
           alt="Cuckoo Logo"
@@ -45,27 +49,42 @@ const Navigation = () => {
           height={32}
         />
         <span className="font-bold text-lg">Doo</span>
-      </div>
+      </a>
       {/* Center: Links */}
       <div className="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
-        <a href="#" className="hover:text-black transition hover:scale-120">
+        <a
+          href="#dashboard"
+          className="hover:text-black transition hover:scale-120"
+        >
           Dashboard
         </a>
-        <a href="#" className="hover:text-black transition hover:scale-120">
+        <a
+          href="#features"
+          className="hover:text-black transition hover:scale-120"
+        >
           Features
         </a>
-        <a href="#" className="hover:text-black transition hover:scale-120">
+        <a
+          href="#pricing"
+          className="hover:text-black transition hover:scale-120"
+        >
           Pricing
         </a>
-        <a href="#" className="hover:text-black transition hover:scale-120">
+        <a
+          href="#contact"
+          className="hover:text-black transition hover:scale-120"
+        >
           Contact
         </a>
       </div>
       {/* Right: Language, Login */}
       <div className="flex space-x-4">
-        <button className="px-6 py-2 mr-0 bg-black hover:shadow-md hover:shadow-green-400 rounded-full font-semibold text-white shadow-md shadow-black/80 transition-all duration-200 hover:scale-105 group cursor-pointer">
+        <a
+          href="#contact"
+          className="px-6 py-2 mr-0 bg-black hover:shadow-md hover:shadow-green-400 rounded-full font-semibold text-white shadow-md shadow-black/80 transition-all duration-200 hover:scale-105 group cursor-pointer"
+        >
           Book a Demo
-        </button>
+        </a>
         <div className="reletaive">
           <button
             className="lg:hidden cursor-pointer ml-2 pt-1"
@@ -96,7 +115,7 @@ const Navigation = () => {
                   height={8}
                 />
                 <a
-                  href="#"
+                  href="#dashboard"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Dashboard
@@ -111,7 +130,7 @@ const Navigation = () => {
                   height={8}
                 />
                 <a
-                  href="#"
+                  href="#features"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Features
@@ -125,7 +144,10 @@ const Navigation = () => {
                   width={24}
                   height={8}
                 />
-                <a href="#" className="block px-4 py-2 text-gray-700">
+                <a
+                  href="#pricing"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
                   Pricing
                 </a>
               </div>
@@ -138,7 +160,7 @@ const Navigation = () => {
                   height={8}
                 />
                 <a
-                  href="#"
+                  href="#contact"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Contact
@@ -148,7 +170,7 @@ const Navigation = () => {
           )}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

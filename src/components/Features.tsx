@@ -1,10 +1,19 @@
 import Image from "next/image";
 import React from "react";
+import * as motion from "motion/react-client";
 
 const Features = () => {
   return (
-    <div className="w-full mx-auto text-gray-900 flex flex-col space-y-10 xl:w-3/4 py-10 px-12">
-      <div className="flex flex-col sm:flex-row sm:justify-between space-y-6 sm:items-center text-center">
+    <div
+      id="features"
+      className="w-full mx-auto text-gray-900 flex flex-col space-y-10 xl:w-3/4 py-10 px-12 scroll-mt-40"
+    >
+      <motion.div
+        // initial={{ y: 30, opacity: 0 }}
+        // whileInView={{ y: 0, opacity: 1 }}
+        // transition={{ duration: 1, delay: 1 }}
+        className="flex flex-col sm:flex-row sm:justify-between space-y-6 sm:items-center text-center"
+      >
         <div className="sm:w-3/4 lg:w-1/2 space-y-4">
           <h1 className="text-2xl sm:text-lg lg:text-xl sm:text-start font-bold mb-2">
             AI-Powered Compliance Tools
@@ -17,9 +26,14 @@ const Features = () => {
         <button className="w-full sm:w-auto min-w-[120px] max-w-[150px] mx-auto sm:mx-0 px-4 py-2 bg-black text-white rounded-full font-semibold shadow-md shadow-black/80 hover:shadow-md hover:shadow-green-400 transition-all duration-200 hover:scale-110 group cursor-pointer">
           Watch a Demo
         </button>
-      </div>
+      </motion.div>
       {/* New Section: Cutting-edge AI models */}
-      <div className="w-full rounded-2xl p-4 sm:p-6 md:p-8 md:pr-0 mb-8 bg-gradient-to-r from-[#080721] via-[#0f0a3f] to-[#3fd0e8] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
+      <motion.div
+        // initial={{ y: 0, opacity: 0 }}
+        // whileInView={{ y: 0, opacity: 1 }}
+        // transition={{ duration: 0.6, delay: 0.8 }}
+        className="w-full rounded-2xl p-4 sm:p-6 md:p-8 md:pr-0 mb-8 bg-gradient-to-r from-black via-gray-900 to-gray-400 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl"
+      >
         {/* Left: Title and Buttons */}
         <div className="flex-1 flex flex-col gap-3 sm:gap-4 text-white text-center md:text-left">
           <h2 className="text-start text-xl sm:text-2xl md:text-2xl lg:text-lg xl:text-xl font-bold">
@@ -88,9 +102,14 @@ const Features = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* Available Features */}
-      <div className="w-full bg-gray-100 rounded-xl p-6 shadow-2xl ">
+      <motion.div
+        // initial={{ y: 30, opacity: 0 }}
+        // whileInView={{ y: 0, opacity: 1 }}
+        // transition={{ duration: 1, delay: 1 }}
+        className="w-full bg-gray-100 rounded-xl p-6 shadow-2xl "
+      >
         <div>
           <h1 className="text-xl font-bold">Available Features</h1>
         </div>
@@ -217,7 +236,7 @@ const Features = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
