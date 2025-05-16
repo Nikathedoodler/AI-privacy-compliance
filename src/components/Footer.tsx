@@ -100,7 +100,7 @@ const Footer = () => {
                   alt="email"
                   width={32}
                   height={16}
-                  className="h4 w:auto px-4"
+                  className="h4 w-auto px-4"
                 />
                 <input
                   type="email"
@@ -109,7 +109,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#23262F] text-white px-3 py-1.5 font-semibold rounded-xl shadow-md shadow-black/80 hover:shadow-md hover:shadow-green-400 cursor-pointer transition-all duration-200 hover:scale-105"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#23262F] text-white px-3 py-1.5 font-semibold rounded-xl shadow-xs shadow-black/80 hover:shadow-md hover:shadow-green-400 cursor-pointer transition-all duration-200 hover:scale-105"
                 >
                   REGISTER
                 </button>
