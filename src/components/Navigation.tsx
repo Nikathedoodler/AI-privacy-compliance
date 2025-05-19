@@ -52,8 +52,11 @@ const Navigation = () => {
       </a>
       {/* Center: Links */}
       <div className="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
+        <a href="admin" className="hover:text-black transition hover:scale-120">
+          Admin
+        </a>
         <a
-          href="#dashboard"
+          href="dashboard"
           className="hover:text-black transition hover:scale-120"
         >
           Dashboard
@@ -106,6 +109,21 @@ const Navigation = () => {
                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                 }`}
             >
+              <div className="flex items-center hover:bg-gray-100">
+                <Image
+                  src="/images/features.png"
+                  alt="pricing"
+                  className="h-7 w-auto"
+                  width={24}
+                  height={8}
+                />
+                <a
+                  href="#dashboard"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Admin
+                </a>
+              </div>
               <div className="flex items-center hover:bg-gray-100">
                 <Image
                   src="/images/features.png"
