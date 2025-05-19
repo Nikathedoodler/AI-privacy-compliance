@@ -1,12 +1,229 @@
-import React from "react";
+"use client";
+
+import React, { act } from "react";
+import { useState } from "react";
 
 const Dashboard = () => {
+  const [activeSection, setActiveSection] = React.useState("users");
+  const handleSectionChange = (section: string) => {
+    setActiveSection(section);
+  };
+
+  const navButtonClass = (section: string) =>
+    `px-6 py-4 rounded-4xl font-semibold cursor-pointer flex items-center gap-2 bg-[#232a41] ${
+      activeSection === section ? "bg-[#B9FF66] text-black" : "text-gray-300"
+    }`;
+
   return (
     <div
-      id="#dahsboard"
-      className="w-full lg:w-3/4 mx-auto flex flex-col justify-center items-center border-2 space-y-6 py-10 px-12 scroll-mt-10"
+      id="#dashboard"
+      className="w-full flex flex-col space-y-16 mx-auto min-h-screen py-10 px-30"
+      style={{
+        background:
+          "radial-gradient(ellipse at 60% 0%, #232a41 0%, #191E2C 70%, #191E2C 100%)",
+      }}
     >
-      Dashboard
+      <div className="text-[#ffffff] flex justify-between items-center">
+        <div className="flex space-x-4">
+          <button
+            onClick={() => handleSectionChange("dashboard")}
+            className={navButtonClass("dashboard")}
+          >
+            {/* Dashboard icon */}
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="5"
+                height="5"
+                rx="1.5"
+                stroke="currentColor"
+              />
+              <rect
+                x="15"
+                y="4"
+                width="5"
+                height="5"
+                rx="1.5"
+                stroke="currentColor"
+              />
+              <rect
+                x="15"
+                y="15"
+                width="5"
+                height="5"
+                rx="1.5"
+                stroke="currentColor"
+              />
+              <rect
+                x="4"
+                y="15"
+                width="5"
+                height="5"
+                rx="1.5"
+                stroke="currentColor"
+              />
+            </svg>
+            Dashboard
+          </button>
+          <button
+            onClick={() => handleSectionChange("user")}
+            className={navButtonClass("user")}
+          >
+            {/* Users icon */}
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" />
+              <path d="M7 21v-2a4 4 0 0 1 3-3.87" stroke="currentColor" />
+              <circle cx="12" cy="7" r="4" stroke="currentColor" />
+            </svg>
+            Users
+          </button>
+          <button
+            onClick={() => handleSectionChange("usage")}
+            className={navButtonClass("usage")}
+          >
+            {/* Usage/Analytics icon */}
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
+                stroke="currentColor"
+              />
+              <path d="M12 6v6l4 2" stroke="currentColor" />
+            </svg>
+            Usage
+          </button>
+          <button
+            onClick={() => handleSectionChange("templates")}
+            className={navButtonClass("templates")}
+          >
+            {/* Templates/Book icon */}
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" />
+              <path
+                d="M20 2H6.5A2.5 2.5 0 0 0 4 4.5v15"
+                stroke="currentColor"
+              />
+            </svg>
+            Templates
+          </button>
+          <button
+            onClick={() => handleSectionChange("booking")}
+            className={navButtonClass("booking")}
+          >
+            {/* Booking/Check icon */}
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 13l4 4L19 7" stroke="currentColor" />
+            </svg>
+            Booking
+          </button>
+        </div>
+        <div className="flex space-x-4 items-center">
+          <button className="flex items-center gap-2 px-6 py-4 rounded-4xl bg-[#232a41] text-gray-300 font-semibold cursor-pointer hover:bg-[#232a41] transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M16 14v2a4 4 0 01-8 0v-2m8 0a4 4 0 00-8 0m8 0V7a4 4 0 00-8 0v7m8 0h2m-2 0v2m0-2v-2"
+              />
+              <circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+              />
+              <path
+                d="M17 11h4m-2-2v4"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Invite user
+          </button>
+          <button className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[#232a41] hover:bg-[#2c3450] transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-gray-300 cursor-pointer"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#232a41]" />
+          </button>
+          <button className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[#232a41] hover:bg-[#2c3450] transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-gray-300 cursor-pointer"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+            <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#232a41]" />
+          </button>
+          <button className="w-12 h-12 flex items-center justify-center rounded-full bg-[#232a41] hover:bg-[#2c3450] transition overflow-hidden">
+            <img
+              src="/images/face-2.jpg"
+              alt="Profile"
+              className="w-10 h-10 rounded-full object-cover cursor-pointer"
+            />
+          </button>
+        </div>
+      </div>
+      <div className="border-2 border-[#ffffff] text-[#ffffff]">content</div>
     </div>
   );
 };
