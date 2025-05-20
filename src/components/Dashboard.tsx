@@ -239,8 +239,15 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div className="border-2 border-[#ffffff] ml-22 xl:ml-10">
-        <div className="text-4xl text-[#ffffff] font-semibold">Dashboard</div>
+      <div className="border-2 border-[#ffffff] ml-22 xl:ml-10 text-white">
+        <div className="flex justify-between items-center p-4">
+          <div>Projects</div>
+          <div>Calendar</div>
+        </div>
+        <div className="flex justify-between items-center p-4">
+          <div>Projects This year</div>
+          <div>Yearly Profit</div>
+        </div>
       </div>
     </div>
   );
