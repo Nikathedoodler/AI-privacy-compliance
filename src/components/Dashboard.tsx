@@ -17,137 +17,153 @@ const Dashboard = () => {
   return (
     <div
       id="#dashboard"
-      className="w-full flex flex-col space-y-16 mx-auto min-h-screen py-10 px-30"
+      className="w-full flex flex-col xl:space-y-16 mx-auto min-h-screen py-10 px-12 2xl:px-30 font-[\'CoFo Sans\',sans-serif]"
       style={{
         background:
           "radial-gradient(ellipse at 60% 0%, #232a41 0%, #191E2C 70%, #191E2C 100%)",
       }}
     >
       <div className="text-[#ffffff] flex justify-between items-center">
-        <div className="flex space-x-4">
-          <button
-            onClick={() => handleSectionChange("dashboard")}
-            className={navButtonClass("dashboard")}
-          >
-            {/* Dashboard icon */}
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
+        <div className="flex">
+          {/* Responsive navigation: horizontal on lg+, vertical sidebar on <lg */}
+          <div className="flex xl:flex-row flex-col xl:space-x-2 xl:space-y-0 space-y-4 xl:items-center items-start xl:w-auto w-16 fixed xl:static left-0 top-0 z-30 h-full bg-transparent xl:bg-transparent pt-33 xl:pt-0 ml-10">
+            <button
+              onClick={() => handleSectionChange("dashboard")}
+              className={
+                navButtonClass("dashboard") +
+                " w-full justify-center xl:justify-start"
+              }
             >
-              <rect
-                x="4"
-                y="4"
-                width="5"
-                height="5"
-                rx="1.5"
+              <svg
+                className="h-5 w-5"
+                fill="none"
                 stroke="currentColor"
-              />
-              <rect
-                x="15"
-                y="4"
-                width="5"
-                height="5"
-                rx="1.5"
-                stroke="currentColor"
-              />
-              <rect
-                x="15"
-                y="15"
-                width="5"
-                height="5"
-                rx="1.5"
-                stroke="currentColor"
-              />
-              <rect
-                x="4"
-                y="15"
-                width="5"
-                height="5"
-                rx="1.5"
-                stroke="currentColor"
-              />
-            </svg>
-            Dashboard
-          </button>
-          <button
-            onClick={() => handleSectionChange("user")}
-            className={navButtonClass("user")}
-          >
-            {/* Users icon */}
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <rect
+                  x="4"
+                  y="4"
+                  width="5"
+                  height="5"
+                  rx="1.5"
+                  stroke="currentColor"
+                />
+                <rect
+                  x="15"
+                  y="4"
+                  width="5"
+                  height="5"
+                  rx="1.5"
+                  stroke="currentColor"
+                />
+                <rect
+                  x="15"
+                  y="15"
+                  width="5"
+                  height="5"
+                  rx="1.5"
+                  stroke="currentColor"
+                />
+                <rect
+                  x="4"
+                  y="15"
+                  width="5"
+                  height="5"
+                  rx="1.5"
+                  stroke="currentColor"
+                />
+              </svg>
+              <span className="hidden xl:inline">Dashboard</span>
+            </button>
+            <button
+              onClick={() => handleSectionChange("user")}
+              className={
+                navButtonClass("user") +
+                " w-full justify-center xl:justify-start"
+              }
             >
-              <path d="M17 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" />
-              <path d="M7 21v-2a4 4 0 0 1 3-3.87" stroke="currentColor" />
-              <circle cx="12" cy="7" r="4" stroke="currentColor" />
-            </svg>
-            Users
-          </button>
-          <button
-            onClick={() => handleSectionChange("usage")}
-            className={navButtonClass("usage")}
-          >
-            {/* Usage/Analytics icon */}
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
+              <svg
+                className="h-5 w-5"
+                fill="none"
                 stroke="currentColor"
-              />
-              <path d="M12 6v6l4 2" stroke="currentColor" />
-            </svg>
-            Usage
-          </button>
-          <button
-            onClick={() => handleSectionChange("templates")}
-            className={navButtonClass("templates")}
-          >
-            {/* Templates/Book icon */}
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" />
+                <path d="M7 21v-2a4 4 0 0 1 3-3.87" stroke="currentColor" />
+                <circle cx="12" cy="7" r="4" stroke="currentColor" />
+              </svg>
+              <span className="hidden xl:inline">Users</span>
+            </button>
+            <button
+              onClick={() => handleSectionChange("usage")}
+              className={
+                navButtonClass("usage") +
+                " w-full justify-center xl:justify-start"
+              }
             >
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" />
-              <path
-                d="M20 2H6.5A2.5 2.5 0 0 0 4 4.5v15"
+              <svg
+                className="h-5 w-5"
+                fill="none"
                 stroke="currentColor"
-              />
-            </svg>
-            Templates
-          </button>
-          <button
-            onClick={() => handleSectionChange("booking")}
-            className={navButtonClass("booking")}
-          >
-            {/* Booking/Check icon */}
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z"
+                  stroke="currentColor"
+                />
+                <path d="M12 6v6l4 2" stroke="currentColor" />
+              </svg>
+              <span className="hidden xl:inline">Usage</span>
+            </button>
+            <button
+              onClick={() => handleSectionChange("templates")}
+              className={
+                navButtonClass("templates") +
+                " w-full justify-center xl:justify-start"
+              }
             >
-              <path d="M5 13l4 4L19 7" stroke="currentColor" />
-            </svg>
-            Booking
-          </button>
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+                  stroke="currentColor"
+                />
+                <path
+                  d="M20 2H6.5A2.5 2.5 0 0 0 4 4.5v15"
+                  stroke="currentColor"
+                />
+              </svg>
+              <span className="hidden xl:inline">Templates</span>
+            </button>
+            <button
+              onClick={() => handleSectionChange("booking")}
+              className={
+                navButtonClass("booking") +
+                " w-full justify-center xl:justify-start"
+              }
+            >
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 13l4 4L19 7" stroke="currentColor" />
+              </svg>
+              <span className="hidden xl:inline">Booking</span>
+            </button>
+          </div>
         </div>
-        <div className="flex space-x-4 items-center">
+        <div className="flex space-x-4 items-center mb-10 xl:mb-0">
           <button className="flex items-center gap-2 px-6 py-4 rounded-4xl bg-[#232a41] text-gray-300 font-semibold cursor-pointer hover:bg-[#232a41] transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +239,9 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div className="border-2 border-[#ffffff] text-[#ffffff]">content</div>
+      <div className="border-2 border-[#ffffff] ml-22 xl:ml-10">
+        <div className="text-4xl text-[#ffffff] font-semibold">Dashboard</div>
+      </div>
     </div>
   );
 };
