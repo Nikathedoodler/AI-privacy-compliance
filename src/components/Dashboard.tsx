@@ -26,7 +26,7 @@ const Dashboard = () => {
       <div className="text-[#ffffff] flex justify-between items-center">
         <div className="flex">
           {/* Responsive navigation: horizontal on lg+, vertical sidebar on <lg */}
-          <div className="flex xl:flex-row flex-col xl:space-x-2 xl:space-y-0 space-y-4 xl:items-center items-start xl:w-auto w-16 fixed xl:static left-0 top-0 z-30 h-full bg-transparent xl:bg-transparent pt-33 xl:pt-0 ml-10">
+          <div className="flex xl:flex-row flex-col xl:space-x-2 xl:space-y-0 space-y-4 xl:items-center items-start xl:w-auto w-16 fixed xl:static left-0 top-0 z-30 h-full bg-transparent xl:bg-transparent pt-33 xl:pt-0 ml-6">
             <button
               onClick={() => handleSectionChange("dashboard")}
               className={
@@ -240,11 +240,11 @@ const Dashboard = () => {
         </div>
       </div>
       {activeSection === "dashboard" && (
-        <div className="ml-22 xl:ml-10 text-gray-300">
+        <div className="ml-14 md:ml-20 xl:ml-6 text-gray-300">
           <div className="text-4xl font-semibold mb-10">Dashboard</div>
           <div className="flex flex-col xl:flex-row gap-8">
-            {/* Projects Card */}
-            <div className="w-full xl:w-5/8 rounded-4xl bg-[#232a41] text-gray-300 font-semibold cursor-pointer p-8 shadow-lg flex flex-col gap-6 min-w-[320px]">
+            {/* Projects Tile */}
+            <div className="w-full xl:w-5/8 rounded-4xl bg-[#232a41] text-gray-300 font-semibold p-8 shadow-lg flex flex-col gap-6 min-w-[320px]">
               <div className="flex items-center justify-between mb-4">
                 <div className="text-2xl font-bold">
                   Projects{" "}
@@ -502,8 +502,58 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            {/* Tools Section: AI Prompt Form + Export */}
-            <div className="bg-transparent rounded-4xl p-8 shadow-lg flex flex-col gap-6">
+            {/* Analytics Tile */}
+            <div className="w-full xl:w-3/8 rounded-4xl bg-[#232a41] text-gray-300 font-semibold p-8 shadow-lg flex flex-col gap-6 min-w-[320px]">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-2xl font-bold">Analytics</div>
+                <div className="flex gap-2">
+                  <button className="w-10 h-10 flex items-center justify-center rounded-full bg-[#232a41] border border-[#31374a] hover:bg-[#31374a] transition">
+                    <svg
+                      className="h-5 w-5 text-[#B9FF66]"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 5v14m7-7H5" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-[#B9FF66] text-lg font-semibold">
+                    Total Tasks
+                  </span>
+                  <span className="font-mono text-2xl">21,339</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[#459BBE] text-lg font-semibold">
+                    Completed Today
+                  </span>
+                  <span className="font-mono text-2xl">+178</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[#DC6F31] text-lg font-semibold">
+                    Avg. Value
+                  </span>
+                  <span className="font-mono text-2xl">$568,338</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[#4E956A] text-lg font-semibold">
+                    New Projects
+                  </span>
+                  <span className="font-mono text-2xl">76</span>
+                </div>
+              </div>
+              <div className="mt-4 text-sm text-gray-400">
+                * Analytics are for demonstration only
+              </div>
+            </div>
+          </div>
+          {/* AI Tools below tiles */}
+          <div className="flex flex-col gap-8 mt-8">
+            <div className="bg-[#232a41] rounded-4xl p-8 shadow-lg flex flex-col gap-6 w-full xl:w-2/3">
               <div className="text-2xl font-bold mb-2">AI Tools</div>
               <form
                 className="flex flex-col gap-4"
