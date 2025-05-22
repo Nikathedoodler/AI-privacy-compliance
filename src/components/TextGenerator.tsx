@@ -108,14 +108,16 @@ const TextGenerator = () => {
   };
 
   return (
-    <div className="bg-[#232a41] rounded-4xl p-8 shadow-lg flex flex-col gap-6 w-full xl:w-full">
-      <div className="text-2xl font-bold mb-2">Gemini Text Generator</div>
-      <p className="text-gray-400 mb-4">
+    <div className="rounded-3xl bg-[#ffffff] px-30 py-16 shadow-2xl drop-shadow-neutral-800 flex flex-col gap-6 w-[98wv] m-3 h-full dark:bg-[#181B20] border border-gray-200 dark:border-[#232a41]">
+      <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+        Gemini Text Generator
+      </div>
+      <p className="text-gray-500 dark:text-gray-300 mb-2 text-base">
         Enter a prompt and let Gemini generate creative, helpful, or informative
         text for you. Try the example prompts below or write your own!
       </p>
       {/* Example prompts */}
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-4 mb-2">
         {[
           "Write a short poem about a cat.",
           "Summarize the plot of Hamlet.",
@@ -125,7 +127,7 @@ const TextGenerator = () => {
           <button
             key={i}
             type="button"
-            className="px-3 py-1 rounded-lg bg-[#31374a] text-gray-200 text-sm hover:bg-[#3D55B6] transition border border-[#3D55B6]"
+            className="px-6 py-2 rounded-xl bg-[#232a41] text-white text-sm hover:bg-[#3D55B6] border border-[#3D55B6] transition"
             onClick={() => setPrompt(ex)}
             disabled={loading}
           >
@@ -134,28 +136,33 @@ const TextGenerator = () => {
         ))}
       </div>
       {/* Prompt guidance */}
-      <div className="text-xs text-gray-400 mb-2">
-        <span className="font-semibold text-[#B9FF66]">Tips:</span> Be specific.
-        Use keywords. Describe the desired tone or style. Try creative,
-        technical, or summarization tasks!
+      <div className="text-xs text-[#7ED957] mb-1 font-medium">
+        Tips:{" "}
+        <span className="text-gray-400 font-normal">
+          Be specific. Use keywords. Describe the desired tone or style. Try
+          creative, technical, or summarization tasks!
+        </span>
       </div>
-      <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
-        <label className="font-semibold" htmlFor="prompt">
+      <form className="flex flex-col gap-3" onSubmit={handleFormSubmit}>
+        <label
+          className="font-semibold text-gray-900 dark:text-white"
+          htmlFor="prompt"
+        >
           Enter your prompt here
         </label>
         <textarea
           id="prompt"
-          className="bg-[#191E2C] border border-[#3D55B6] rounded-xl p-3 text-white resize-none focus:outline-none focus:border-[#B9FF66] transition"
+          className="bg-[#ffffff] dark:bg-[#181B20] border rounded-xl p-4 text-base resize-none  focus:border-[#black] transition min-h-[60px]"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           rows={3}
           placeholder="Ask the AI anything..."
           required
         />
-        <div className="flex gap-4 mt-2">
+        <div className="flex gap-4 mt-1">
           <button
             type="submit"
-            className="bg-[#B9FF66] text-black font-bold px-6 py-2 rounded-xl cursor-pointer hover:bg-[#A0E95A] transition"
+            className="flex items-center gap-2 px-10 py-3 bg-black text-white text-sm rounded-full font-semibold shadow-black/80 hover:shadow-md cursor-pointer relative md hover:shadow-green-400 transition-all hover:scale-105 group"
             disabled={loading}
           >
             {loading ? "Running..." : "Run AI"}
@@ -163,7 +170,7 @@ const TextGenerator = () => {
         </div>
       </form>
       {/* AI result output placeholder */}
-      <div className="bg-[#191E2C] rounded-xl p-4 min-h-[60px] mt-2 text-[#B9FF66] text-lg relative overflow-x-auto">
+      <div className="dark:bg-[#181B20] rounded-xl min-h-[60px] mt-2 text-lg relative overflow-x-auto">
         {loading ? (
           <span className="opacity-60 animate-pulse">
             Generating AI response...
@@ -172,87 +179,122 @@ const TextGenerator = () => {
           <span className="text-red-400">{error}</span>
         ) : response ? (
           <>
-            <div className="prose prose-invert max-w-none text-gray-300 ">
+            <div className="prose prose-invert max-w-none">
               <ReactMarkdown components={markdownComponents}>
                 {response}
               </ReactMarkdown>
             </div>
-            <div className="flex gap-2 mt-4">
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-lg bg-[#B9FF66] text-black font-bold hover:bg-[#A0E95A] transition flex items-center gap-2 ${
-                  copied ? "ring-2 ring-[#B9FF66]" : ""
-                }`}
-                onClick={handleCopy}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
+            <div className="flex gap-2 mt-4 items-center">
+              {/* Copy */}
+              <div className="relative group w-fit">
+                {/* Tooltip */}
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-black text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
+                  {copied ? "Copied!" : "Copy"}
+                </div>
+
+                {/* Button */}
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#232a41] transition cursor-pointer"
+                  aria-label="Copy"
                 >
-                  <rect
-                    x="9"
-                    y="9"
-                    width="13"
-                    height="13"
-                    rx="2"
-                    stroke="currentColor"
-                  />
-                  <rect
-                    x="3"
-                    y="3"
-                    width="13"
-                    height="13"
-                    rx="2"
-                    stroke="currentColor"
-                  />
-                </svg>
-                {copied ? "Copied!" : "Copy"}
-              </button>
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-lg bg-[#459BBE] text-white font-bold hover:bg-[#357ca0] transition flex items-center gap-2 ${
-                  downloaded ? "ring-2 ring-[#459BBE]" : ""
-                }`}
-                onClick={handleDownload}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
+                  {copied ? (
+                    <svg
+                      className="h-6 w-6 transition"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 13l4 4L19 7"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="h-6 w-6 text-gray-500 group-hover:text-blue-500 transition"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        stroke="currentColor"
+                      />
+                      <rect
+                        x="3"
+                        y="3"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        stroke="currentColor"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
+
+              {/* Download */}
+              <div className="relative group w-fit">
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-black text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
+                  {"Download"}
+                </div>
+                <button
+                  type="button"
+                  onClick={handleDownload}
+                  className="group p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#232a41] transition cursor-pointer"
+                  aria-label="Download"
                 >
-                  <path d="M12 5v14m0 0l-5-5m5 5l5-5" stroke="currentColor" />
-                  <rect
-                    x="5"
-                    y="19"
-                    width="14"
-                    height="2"
-                    rx="1"
+                  <svg
+                    className="h-6 w-6 text-gray-500 group-hover:text-indigo-500 transition"
+                    fill="none"
                     stroke="currentColor"
-                  />
-                </svg>
-                {downloaded ? "Downloaded!" : "Download"}
-              </button>
-              <button
-                type="button"
-                className="px-4 py-2 rounded-lg bg-[#31374a] text-white font-bold hover:bg-[#3D55B6] transition flex items-center gap-2"
-                onClick={handleClear}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 5v14m0 0l-5-5m5 5l5-5" stroke="currentColor" />
+                    <rect
+                      x="5"
+                      y="19"
+                      width="14"
+                      height="2"
+                      rx="1"
+                      stroke="currentColor"
+                    />
+                  </svg>
+                </button>
+              </div>
+              {/* Clear */}
+              <div className="relative group w-fit">
+                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-black text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
+                  {"Clear"}
+                </div>
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  className="group p-2 rounded-full hover:bg-gray-100 dark:hover:bg-[#232a41] transition cursor-pointer"
+                  aria-label="Clear"
                 >
-                  <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" />
-                </svg>
-                Clear
-              </button>
+                  <svg
+                    className="h-6 w-6 text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white transition"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </>
         ) : (
