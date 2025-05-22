@@ -2,42 +2,13 @@
 
 import React, { act } from "react";
 import { useState, FormEvent } from "react";
+import TextGenerator from "./TextGenerator";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("dashboard");
-  const [prompt, setPrompt] = useState<string>("");
-  const [response, setResponse] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
 
   const handleSectionChange = (section: string) => {
     setActiveSection(section);
-  };
-
-  const handleFormSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setResponse("");
-    try {
-      const res = await fetch("/api/gemini", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
-      });
-      if (!res.ok) {
-        const err = await res.json();
-        setError(err.error || "Something went wrong.");
-        setLoading(false);
-        return;
-      }
-      const data = await res.json();
-      setResponse(data.result || "No response from AI.");
-    } catch (err) {
-      setError("Failed to connect to AI service.");
-    } finally {
-      setLoading(false);
-    }
   };
 
   const navButtonClass = (section: string) =>
@@ -195,38 +166,6 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="flex space-x-4 items-center mb-10 xl:mb-0">
-          <button className="flex items-center gap-2 px-6 py-4 rounded-4xl bg-[#232a41] text-gray-300 font-semibold cursor-pointer hover:bg-[#232a41] transition">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 14v2a4 4 0 01-8 0v-2m8 0a4 4 0 00-8 0m8 0V7a4 4 0 00-8 0v7m8 0h2m-2 0v2m0-2v-2"
-              />
-              <circle
-                cx="9"
-                cy="7"
-                r="4"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                d="M17 11h4m-2-2v4"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Invite user
-          </button>
           <button className="relative w-12 h-12 flex items-center justify-center rounded-full bg-[#232a41] hover:bg-[#2c3450] transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -272,58 +211,9 @@ const Dashboard = () => {
       </div>
       {activeSection === "dashboard" && (
         <div className="ml-14 md:ml-20 xl:ml-6 text-gray-300">
-          <div className="text-4xl font-semibold mb-10">AI TOOLS</div>
           {/* AI Tools below tiles */}
           <div className="flex flex-col gap-8 mt-8">
-            <div className="bg-[#232a41] rounded-4xl p-8 shadow-lg flex flex-col gap-6 w-full xl:w-full">
-              <div className="text-2xl font-bold mb-2">
-                Text generation and prompting
-              </div>
-              <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
-                <label className="font-semibold">Prompt</label>
-                <textarea
-                  className="bg-[#191E2C] border border-[#3D55B6] rounded-xl p-3 text-white resize-none focus:outline-none focus:border-[#B9FF66] transition"
-                  value={prompt}
-                  onChange={(e) => setPrompt(e.target.value)}
-                  rows={3}
-                  placeholder="Ask the AI anything..."
-                  required
-                />
-                <div className="flex gap-4 mt-2">
-                  <button
-                    type="submit"
-                    className="bg-[#B9FF66] text-black font-bold px-6 py-2 rounded-xl cursor-pointer hover:bg-[#A0E95A] transition"
-                    disabled={loading}
-                  >
-                    {loading ? "Running..." : "Run AI"}
-                  </button>
-                  <button
-                    type="button"
-                    className="bg-[#459BBE] text-white font-bold px-6 py-2 rounded-xl cursor-pointer hover:bg-[#357ca0] transition"
-                    // onClick={handleExport}
-                    disabled={loading}
-                  >
-                    Export
-                  </button>
-                </div>
-              </form>
-              {/* AI result output placeholder */}
-              <div className="bg-[#191E2C] rounded-xl p-4 min-h-[60px] mt-2 text-[#B9FF66] text-lg">
-                {loading ? (
-                  <span className="opacity-60 animate-pulse">
-                    Generating AI response...
-                  </span>
-                ) : error ? (
-                  <span className="text-red-400">{error}</span>
-                ) : response ? (
-                  <span>{response}</span>
-                ) : (
-                  <span className="opacity-60">
-                    AI output will appear here...
-                  </span>
-                )}
-              </div>
-            </div>
+            <TextGenerator />
           </div>
         </div>
       )}
