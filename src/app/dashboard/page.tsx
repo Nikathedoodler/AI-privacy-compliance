@@ -16,11 +16,21 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import React, { useState } from "react";
 
 export default function Page() {
+  const [selected, setSelected] = useState<{ main: string; sub?: string }>({
+    main: "Models",
+    sub: "Gemini",
+  });
+
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar
+        {...({
+          onSelect: (main: string, sub?: string) => setSelected({ main, sub }),
+        } as any)}
+      />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
@@ -29,19 +39,21 @@ export default function Page() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
+                  <BreadcrumbLink href="#">{selected.main}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                  <BreadcrumbPage>{selected.sub}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
         </header>
-        <TextGenerator />
+        {/* Main content switching logic */}
+        {selected.main === "Models" && selected.sub === "Gemini" && (
+          <TextGenerator />
+        )}
+        {/* Add more conditional renders for other tools/pages as needed */}
       </SidebarInset>
     </SidebarProvider>
   );

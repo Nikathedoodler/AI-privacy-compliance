@@ -156,14 +156,19 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({
+  onSelect,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & {
+  onSelect?: (main: string, sub?: string) => void;
+}) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navMain} onSelect={onSelect} />
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
